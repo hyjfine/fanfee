@@ -8,8 +8,8 @@ class ToDoActionCreator {
     return Action(ToDoAction.onEdit, payload: uniqueId);
   }
 
-  static Action editAction(ToDoState toDo) {
-    return Action(ToDoAction.edit, payload: toDo);
+  static Action editAction(TodoState todo) {
+    return Action(ToDoAction.edit, payload: todo);
   }
 
   static Action doneAction(String uniqueId) {

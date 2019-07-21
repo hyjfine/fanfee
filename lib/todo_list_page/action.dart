@@ -4,8 +4,8 @@ import 'todo_component/component.dart';
 enum PageAction { initToDos, onAdd }
 
 class PageActionCreator {
-  static Action initToDosAction(List<ToDoState> toDos) {
-    return Action(PageAction.initToDos, payload: toDos);
+  static Action initToDosAction(List<TodoState> todoList) {
+    return Action(PageAction.initToDos, payload: todoList);
   }
 
   static Action onAddAction() {

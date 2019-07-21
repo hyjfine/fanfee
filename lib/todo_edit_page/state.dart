@@ -4,7 +4,7 @@ import 'package:flutter/material.dart' hide Action;
 import '../todo_list_page/todo_component/component.dart';
 
 class TodoEditState implements Cloneable<TodoEditState> {
-  ToDoState toDo;
+  TodoState todo;
 
   TextEditingController nameEditController;
   TextEditingController descEditController;
@@ -19,13 +19,13 @@ class TodoEditState implements Cloneable<TodoEditState> {
       ..descEditController = descEditController
       ..focusNodeName = focusNodeName
       ..focusNodeDesc = focusNodeDesc
-      ..toDo = toDo;
+      ..todo = todo;
   }
 }
 
-TodoEditState initState(ToDoState arg) {
+TodoEditState initState(TodoState arg) {
   final TodoEditState state = TodoEditState();
-  state.toDo = arg?.clone() ?? ToDoState();
+  state.todo = arg?.clone() ?? TodoState();
   state.nameEditController = TextEditingController(text: arg?.title);
   state.descEditController = TextEditingController(text: arg?.desc);
   state.focusNodeName = FocusNode();

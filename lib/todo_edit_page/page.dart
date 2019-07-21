@@ -6,7 +6,7 @@ import 'reducer.dart';
 import 'state.dart';
 import 'view.dart';
 
-class TodoEditPage extends Page<TodoEditState, ToDoState> {
+class TodoEditPage extends Page<TodoEditState, TodoState> {
   TodoEditPage()
       : super(
           initState: initState,

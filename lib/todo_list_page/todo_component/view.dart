@@ -5,7 +5,7 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(
-  ToDoState state,
+  TodoState state,
   Dispatch dispatch,
   ViewService viewService,
 ) {

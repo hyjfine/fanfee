@@ -7,8 +7,8 @@ import 'view.dart';
 
 export 'state.dart';
 
-class ToDoComponent extends Component<ToDoState> {
-  ToDoComponent()
+class TodoComponent extends Component<TodoState> {
+  TodoComponent()
       : super(
           view: buildView,
           effect: buildEffect(),

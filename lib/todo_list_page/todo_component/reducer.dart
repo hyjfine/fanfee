@@ -3,24 +3,24 @@ import 'package:fish_redux/fish_redux.dart';
 import 'action.dart';
 import 'state.dart';
 
-Reducer<ToDoState> buildReducer() {
-  return asReducer(<Object, Reducer<ToDoState>>{
+Reducer<TodoState> buildReducer() {
+  return asReducer(<Object, Reducer<TodoState>>{
     ToDoAction.edit: _edit,
     ToDoAction.done: _markDone
   });
 }
 
-ToDoState _edit(ToDoState state, Action action) {
-  final ToDoState toDo = action.payload;
-  if (state.uniqueId == toDo.uniqueId) {
+TodoState _edit(TodoState state, Action action) {
+  final TodoState todo = action.payload;
+  if (state.uniqueId == todo.uniqueId) {
     return state.clone()
-      ..title = toDo.title
-      ..desc = toDo.desc;
+      ..title = todo.title
+      ..desc = todo.desc;
   }
   return state;
 }
 
-ToDoState _markDone(ToDoState state, Action action) {
+TodoState _markDone(TodoState state, Action action) {
   final String uniqueId = action.payload;
   if (state.uniqueId == uniqueId) {
     return state.clone()..isDone = !state.isDone;

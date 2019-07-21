@@ -16,7 +16,7 @@ class ToDoListPage extends Page<PageState, Map<String, dynamic>> {
           reducer: buildReducer(),
           view: buildView,
           dependencies: Dependencies<PageState>(
-              adapter: NoneConn<PageState>() + ToDoListAdapter(),
+              adapter: NoneConn<PageState>() + TodoListAdapter(),
               slots: <String, Dependent<PageState>>{
                 'report': ReportConnector() + ReportComponent()
               }),

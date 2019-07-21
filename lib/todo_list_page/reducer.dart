@@ -11,8 +11,8 @@ Reducer<PageState> buildReducer() {
 }
 
 PageState _initToDosReducer(PageState state, Action action) {
-  final List<ToDoState> toDos = action.payload ?? <ToDoState>[];
+  final List<TodoState> todoList = action.payload ?? <TodoState>[];
   final PageState newState = state.clone();
-  newState.toDos = toDos;
+  newState.todoList = todoList;
   return newState;
 }

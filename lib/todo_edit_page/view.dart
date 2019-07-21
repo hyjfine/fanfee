@@ -48,7 +48,7 @@ Widget buildView(
                   style: TextStyle(fontSize: 18),
                   overflow: TextOverflow.ellipsis),
               onPressed: () {
-                dispatch(ToDoEditActionCreator.onChangeTheme());
+                dispatch(TodoEditActionCreator.onChangeTheme());
               }),
           Expanded(
               child: Container(
@@ -84,7 +84,7 @@ Widget buildView(
       ),
     ),
     floatingActionButton: FloatingActionButton(
-      onPressed: () => dispatch(ToDoEditActionCreator.onDone()),
+      onPressed: () => dispatch(TodoEditActionCreator.onDone()),
       tooltip: 'Done',
       child: const Icon(Icons.done),
     ),

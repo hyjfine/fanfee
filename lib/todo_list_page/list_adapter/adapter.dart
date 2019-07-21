@@ -4,23 +4,23 @@ import '../state.dart';
 import '../todo_component/component.dart';
 import 'reducer.dart';
 
-class ToDoListAdapter extends DynamicFlowAdapter<PageState> {
-  ToDoListAdapter()
+class TodoListAdapter extends DynamicFlowAdapter<PageState> {
+  TodoListAdapter()
       : super(
           pool: <String, Component<Object>>{
-            'toDo': ToDoComponent(),
+            'todo': TodoComponent(),
           },
-          connector: _ToDoListConnector(),
+          connector: _TodoListConnector(),
           reducer: buildReducer(),
         );
 }
 
-class _ToDoListConnector extends ConnOp<PageState, List<ItemBean>> {
+class _TodoListConnector extends ConnOp<PageState, List<ItemBean>> {
   @override
   List<ItemBean> get(PageState state) {
-    if (state.toDos?.isNotEmpty == true) {
-      return state.toDos
-          .map<ItemBean>((ToDoState data) => ItemBean('toDo', data))
+    if (state.todoList?.isNotEmpty == true) {
+      return state.todoList
+          .map<ItemBean>((TodoState data) => ItemBean('todo', data))
           .toList(growable: true);
     } else {
       return <ItemBean>[];
@@ -28,12 +28,12 @@ class _ToDoListConnector extends ConnOp<PageState, List<ItemBean>> {
   }
 
   @override
-  void set(PageState state, List<ItemBean> toDos) {
-    if (toDos?.isNotEmpty == true) {
-      state.toDos = List<ToDoState>.from(
-          toDos.map<ToDoState>((ItemBean bean) => bean.data).toList());
+  void set(PageState state, List<ItemBean> todoList) {
+    if (todoList?.isNotEmpty == true) {
+      state.todoList = List<TodoState>.from(
+          todoList.map<TodoState>((ItemBean bean) => bean.data).toList());
     } else {
-      state.toDos = <ToDoState>[];
+      state.todoList = <TodoState>[];
     }
   }
 }

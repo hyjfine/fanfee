@@ -4,11 +4,11 @@ import 'report_component/component.dart';
 import 'todo_component/component.dart';
 
 class PageState implements Cloneable<PageState> {
-  List<ToDoState> toDos;
+  List<TodoState> todoList;
 
   @override
   PageState clone() {
-    return PageState()..toDos = toDos;
+    return PageState()..todoList = todoList;
   }
 }
 
@@ -27,12 +27,12 @@ class ReportConnector extends Reselect2<PageState, ReportState, int, int> {
 
   @override
   int getSub0(PageState state) {
-    return state.toDos.where((ToDoState tds) => tds.isDone).toList().length;
+    return state.todoList.where((TodoState tds) => tds.isDone).toList().length;
   }
 
   @override
   int getSub1(PageState state) {
-    return state.toDos.length;
+    return state.todoList.length;
   }
 
   @override

@@ -4,29 +4,29 @@ import 'package:flutter/material.dart' hide Action;
 import 'action.dart';
 import 'state.dart';
 
-Effect<ToDoState> buildEffect() {
-  return combineEffects(<Object, Effect<ToDoState>>{
+Effect<TodoState> buildEffect() {
+  return combineEffects(<Object, Effect<TodoState>>{
     ToDoAction.onEdit: _onEdit,
     ToDoAction.onRemove: _onRemove,
   });
 }
 
-void _onEdit(Action action, Context<ToDoState> ctx) {
+void _onEdit(Action action, Context<TodoState> ctx) {
   if (action.payload == ctx.state.uniqueId) {
     Navigator.of(ctx.context)
         // .push<ToDoState>(MaterialPageRoute<ToDoState>(
         //     builder: (BuildContext buildCtx) =>
         //         edit_page.TodoEditPage().buildPage(ctx.state)))
         .pushNamed('todo_edit', arguments: ctx.state)
-        .then((dynamic toDo) {
-      if (toDo != null) {
-        ctx.dispatch(ToDoActionCreator.editAction(toDo));
+        .then((dynamic todo) {
+      if (todo != null) {
+        ctx.dispatch(ToDoActionCreator.editAction(todo));
       }
     });
   }
 }
 
-void _onRemove(Action action, Context<ToDoState> ctx) async {
+void _onRemove(Action action, Context<TodoState> ctx) async {
   final String select = await showDialog<String>(
       context: ctx.context,
       builder: (BuildContext buildContext) {

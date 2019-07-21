@@ -14,20 +14,20 @@ Effect<PageState> buildEffect() {
 }
 
 void _init(Action action, Context<PageState> ctx) {
-  final List<ToDoState> initToDos = <ToDoState>[
-    ToDoState(
+  final List<TodoState> initToDos = <TodoState>[
+    TodoState(
       uniqueId: '0',
       title: 'Hello world',
       desc: 'Learn how to program.',
       isDone: true,
     ),
-    ToDoState(
+    TodoState(
       uniqueId: '1',
       title: 'Hello Flutter',
       desc: 'Learn how to build a flutter application.',
       isDone: true,
     ),
-    ToDoState(
+    TodoState(
       uniqueId: '2',
       title: 'How Fish Redux',
       desc: 'Learn how to use Fish Redux in a flutter application.',
@@ -41,10 +41,10 @@ void _init(Action action, Context<PageState> ctx) {
 void _onAdd(Action action, Context<PageState> ctx) {
   Navigator.of(ctx.context)
       .pushNamed('todo_edit', arguments: null)
-      .then((dynamic toDo) {
-    if (toDo != null &&
-        (toDo.title?.isNotEmpty == true || toDo.desc?.isNotEmpty == true)) {
-      ctx.dispatch(list_action.ToDoListActionCreator.add(toDo));
+      .then((dynamic todo) {
+    if (todo != null &&
+        (todo.title?.isNotEmpty == true || todo.desc?.isNotEmpty == true)) {
+      ctx.dispatch(list_action.ToDoListActionCreator.add(todo));
     }
   });
 }

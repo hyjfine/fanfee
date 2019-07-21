@@ -1,11 +1,11 @@
 import 'package:fish_redux/fish_redux.dart';
 
-enum ToDoEditAction { update, onDone, onChangeTheme }
+enum TodoEditAction { update, onDone, onChangeTheme }
 
-class ToDoEditActionCreator {
+class TodoEditActionCreator {
   static Action update(String name, String desc) {
     return Action(
-      ToDoEditAction.update,
+      TodoEditAction.update,
       payload: <String, String>{
         'name': name,
         'desc': desc,
@@ -14,10 +14,10 @@ class ToDoEditActionCreator {
   }
 
   static Action onDone() {
-    return const Action(ToDoEditAction.onDone);
+    return const Action(TodoEditAction.onDone);
   }
 
   static Action onChangeTheme() {
-    return const Action(ToDoEditAction.onChangeTheme);
+    return const Action(TodoEditAction.onChangeTheme);
   }
 }

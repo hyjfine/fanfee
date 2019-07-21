@@ -1,18 +1,18 @@
 import 'package:fish_redux/fish_redux.dart';
 
-class ToDoState implements Cloneable<ToDoState> {
+class TodoState implements Cloneable<TodoState> {
   String uniqueId;
   String title;
   String desc;
   bool isDone;
 
-  ToDoState({this.uniqueId, this.title, this.desc, this.isDone = false}) {
+  TodoState({this.uniqueId, this.title, this.desc, this.isDone = false}) {
     uniqueId ??= DateTime.now().toIso8601String();
   }
 
   @override
-  ToDoState clone() {
-    return ToDoState()
+  TodoState clone() {
+    return TodoState()
       ..uniqueId = uniqueId
       ..title = title
       ..desc = desc
