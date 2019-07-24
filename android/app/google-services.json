@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "137982343094",
+    "firebase_url": "https://fan2-ac810.firebaseio.com",
+    "project_id": "fan2-ac810",
+    "storage_bucket": "fan2-ac810.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137982343094:android:2a546ea9b683d02f",
+        "android_client_info": {
+          "package_name": "com.hyj.flutter_app_eat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137982343094-ilafnia7pbkbk0c4dabcmn9tchij82rj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuKNOBoVBVgvsbCi6OaZJiWzvfdVBG8PQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137982343094-ilafnia7pbkbk0c4dabcmn9tchij82rj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "137982343094-0352bm5l1pforu6vtgf4koop0mh95its.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.hyj.flutterAppEat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
