@@ -1,8 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'todo_edit_page/page.dart';
+import 'todo_list_page/full_screen_dialog_demo.dart';
 import 'todo_list_page/page.dart';
 
 void main() => runApp(MyApp1());
@@ -36,14 +37,16 @@ class _MyHomePageState1 extends State<MyHomePage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Baby Name Votes')),
+      appBar: AppBar(title: Text('Wuuk fan&fee')),
       body: _buildBody(context),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {
-          Firestore.instance
-              .collection('baby')
-              .document('test')
-              .setData({'name': 'add', "votes": 5})
+          Navigator.push(
+              context,
+              MaterialPageRoute<DismissDialogAction>(
+                builder: (BuildContext context) => FullScreenDialogDemo(),
+                fullscreenDialog: true,
+              )),
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
@@ -56,7 +59,7 @@ class _MyHomePageState1 extends State<MyHomePage1> {
 
 //    return _buildList(context, dummySnapshot);
     return StreamBuilder<QuerySnapshot>(
-      stream: Firestore.instance.collection('baby').snapshots(),
+      stream: Firestore.instance.collection('heFee').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
         return _buildList(context, snapshot.data.documents);
@@ -72,7 +75,7 @@ class _MyHomePageState1 extends State<MyHomePage1> {
   }
 
   Widget _buildListItem(BuildContext context, DocumentSnapshot data) {
-    final record = Record.fromSnapshot(data);
+    final record = RecordFee.fromSnapshot(data);
 
     return Padding(
       key: ValueKey(record.name),
@@ -83,9 +86,9 @@ class _MyHomePageState1 extends State<MyHomePage1> {
           borderRadius: BorderRadius.circular(5.0),
         ),
         child: ListTile(
-          title: Text(record.name),
-          trailing: Text(record.votes.toString()),
-          onTap: () => record.reference.updateData({'votes': record.votes + 1}),
+          title: Text(record.reference.documentID + "@" + record.name),
+          trailing: Text(record.fee.toString()),
+          onTap: () => record.reference.updateData({'votes': record.fee + 1}),
         ),
       ),
     );
@@ -108,6 +111,24 @@ class Record {
 
   @override
   String toString() => "Record<$name:$votes>";
+}
+
+class RecordFee {
+  final String name;
+  final double fee;
+  final DocumentReference reference;
+
+  RecordFee.fromMap(Map<String, dynamic> map, {this.reference})
+      : assert(map['name'] != null),
+        assert(map['fee'] != null),
+        name = map['name'],
+        fee = map['fee'];
+
+  RecordFee.fromSnapshot(DocumentSnapshot snapshot)
+      : this.fromMap(snapshot.data, reference: snapshot.reference);
+
+  @override
+  String toString() => "Record<$name:$fee>";
 }
 
 Widget createApp() {
