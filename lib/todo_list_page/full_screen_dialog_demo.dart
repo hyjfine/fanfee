@@ -160,7 +160,8 @@ class FullScreenDialogDemoState extends State<FullScreenDialogDemo> {
             child: Text('SAVE',
                 style: theme.textTheme.body1.copyWith(color: Colors.white)),
             onPressed: () {
-              print("------onsave $_fromDateTime $_eventName || $_fee");
+              print(
+                  "------onsave $_fromDateTime $_eventName || $_fee || ${DateTimeUtil.dateTimeNormal(_fromDateTime.toIso8601String())}");
               Firestore.instance
                   .collection('heFee')
                   .document(DateTimeUtil.dateTimeNormal(
