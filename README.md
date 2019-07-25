@@ -4,10 +4,8 @@
 
 问题是月底算起来很麻烦的，美团，饿了么，外卖的。到店吃用微信，支付宝，现金的。虽然是每月烦一次，但我喜欢明明白白，那么就用技术来解决问题吧，毕竟写代码还能让自己开心！
 
-## 截图
-
-<img align="right" with="270" height="555" src ="http://doc.heyongjian.cn/fan-fee-0.jpg" alt="Todo List">
-<img align="left" with="270" height="555"  src ="http://doc.heyongjian.cn/fan-fee-1.jpg" alt="Todo List">
+<img align="right" with="270" height="555" src ="http://doc.heyongjian.cn/fan-fee-1.jpg" alt="Todo List">
+<img align="right" with="270" height="555"  src ="http://doc.heyongjian.cn/fan-fee-0.jpg" alt="Todo List">
 
 
 ## 功能
