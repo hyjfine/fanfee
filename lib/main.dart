@@ -78,7 +78,7 @@ class _MyHomePageState1 extends State<MyHomePage1> {
     final record = RecordFee.fromSnapshot(data);
 
     return Padding(
-      key: ValueKey(record.name),
+      key: ValueKey(record.reference.documentID),
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Container(
         decoration: BoxDecoration(
